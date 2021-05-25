@@ -1,0 +1,75 @@
+﻿@page "/fetchdata"
+@using BlazorConnectionResetExceptions.Shared
+@inject HttpClient Http
+@inject NavigationManager Nav
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        <input type="button" value="Force Page Reload" @onclick="OnReloadClick" />
+    </p>
+    <p>
+        <b>🠕🠕🠕 Click this button twice</b> and watch the VS debugger's Output window (when debugging Kestrel).
+        It should log hundreds of exceptions like this:
+    </p>
+    <ul>
+        <li>Exception thrown: 'System.Net.Sockets.SocketException' in System.Private.CoreLib.dll</li>
+        <li>Exception thrown: 'System.Net.Sockets.SocketException' in Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll</li>
+        <li>Exception thrown: 'Microsoft.AspNetCore.Connections.ConnectionResetException' in System.Private.CoreLib.dll</li>
+        <li>Exception thrown: 'Microsoft.AspNetCore.Connections.ConnectionResetException' in System.Net.Security.dll</li>
+    </ul>
+    <p>
+        Meanwhile, the client side app is left waiting on a connection.
+        Switch to the <a href="">Home</a> screen and back to here to see this screen stuck at Loading...
+        ☹
+    </p>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+    }
+
+
+    protected async Task OnReloadClick()
+    {
+        // Force data to be loaded from the server again. After a couple of clicks this should cause hundreds of
+        // Microsoft.AspNetCore.Connections.ConnectionResetException when the VS debugger is attached to Kestrel.
+        await OnInitializedAsync();
+
+        Nav.NavigateTo("/fetchdata", forceLoad: true);
+    }
+}

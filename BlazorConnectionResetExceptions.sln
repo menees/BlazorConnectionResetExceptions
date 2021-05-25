@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorConnectionResetExceptions.Server", "BlazorConnectionResetExceptions\Server\BlazorConnectionResetExceptions.Server.csproj", "{57C81FFB-A723-4AF2-B28A-D397C128D5F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorConnectionResetExceptions.Client", "BlazorConnectionResetExceptions\Client\BlazorConnectionResetExceptions.Client.csproj", "{21B0F27E-ABA4-4602-AE75-ACD177233296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorConnectionResetExceptions.Shared", "BlazorConnectionResetExceptions\Shared\BlazorConnectionResetExceptions.Shared.csproj", "{F14317FA-9A65-4B44-8534-D70EA23A8EE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D35BBA3C-3C31-4B5D-925F-8C22E0C31111}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57C81FFB-A723-4AF2-B28A-D397C128D5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C81FFB-A723-4AF2-B28A-D397C128D5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C81FFB-A723-4AF2-B28A-D397C128D5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C81FFB-A723-4AF2-B28A-D397C128D5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B0F27E-ABA4-4602-AE75-ACD177233296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B0F27E-ABA4-4602-AE75-ACD177233296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B0F27E-ABA4-4602-AE75-ACD177233296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B0F27E-ABA4-4602-AE75-ACD177233296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F14317FA-9A65-4B44-8534-D70EA23A8EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14317FA-9A65-4B44-8534-D70EA23A8EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14317FA-9A65-4B44-8534-D70EA23A8EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14317FA-9A65-4B44-8534-D70EA23A8EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5A3CA55-9A71-43C4-BCBA-BB42A9562B36}
+	EndGlobalSection
+EndGlobal
